@@ -1,0 +1,39 @@
+
+.todo__wrap{
+    display: grid;
+    grid-template-columns: 1fr 6fr 4fr 6fr 1fr;
+    background: #ffffff;
+    margin: 17px 0;
+    padding: 15px;
+    border-radius: 15px;
+    align-items: center;
+    box-shadow: 0 0 7px 3px #0000001c;
+    opacity: 1;
+    transition: 0.8s;
+}
+
+.todo__delete{
+    font-size: 1.6em;
+    color: #e15f5f;
+}
+
+.todo__date_wrap{
+    font-size: 0.8em;
+}
+
+.todo__date_updated{
+    color: #258de5;
+    font-weight: 500;
+}
+
+.todo__date_created{
+    color: #000000b8;
+}
+
+.todo__done .todo__title{
+    text-decoration: line-through;
+}
+
+.todo__done{
+    opacity: 0.5;
+}
