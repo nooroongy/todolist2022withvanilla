@@ -1,7 +1,7 @@
 
 .todo__wrap{
     display: grid;
-    grid-template-columns: 1fr 6fr 4fr 6fr 1fr;
+    grid-template-columns: 1fr 18fr 6fr 1fr;
     background: #ffffff;
     margin: 17px 0;
     padding: 15px;
@@ -39,13 +39,32 @@
 }
 
 .todo__tag{
-    font-size: 0.7em;
+    font-size: 0.85em;
     color: #3388d2;
     cursor: pointer;
     font-family: 'Noto Sans KR';
     font-weight: 400;
+    margin-left: 2px;
 }
 
 .todo__tag:hover{
     color: #8ab7df;
+}
+
+.todo__tags{
+    margin-left: 10px;
+    display: inline-flex;
+}
+
+.todo__title{
+    font-size: 0.9em;
+    font-family: 'Noto Sans KR';
+    font-weight: 700;
+}
+
+.todo__input{
+    width: 17px;
+    height: 17px;
+    border-radius: 5px;
+    border: none;
 }

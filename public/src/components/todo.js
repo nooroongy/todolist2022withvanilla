@@ -8,17 +8,16 @@ export default function Todo({ id, title, tag, created_at, updated_at, datas }) 
         setChildElement($resultElement, {
             $checkbox: ctrateTodoCheckbox(),
             $title: createTodoTitle(),
-            $tag: createTagList(),
+            // $tag: createTagList(),
             $todoDate: createTodoDateWrap(),
             $deleteBtn: createDeleteBtn()
         })
         return $resultElement
     }
 
-    const setChildElement = ($target, { $checkbox, $tag, $title, $todoDate, $deleteBtn }) => {
+    const setChildElement = ($target, { $checkbox,  $title, $todoDate, $deleteBtn }) => {
         $target.append($checkbox)
         $target.append($title)
-        $target.append($tag)
         $target.append($todoDate)
         $target.append($deleteBtn)
 
@@ -27,7 +26,7 @@ export default function Todo({ id, title, tag, created_at, updated_at, datas }) 
     }
 
     const ctrateTodoCheckbox = () => {
-        const $checkbox = createEl('input')();
+        const $checkbox = createEl('input')('todo__input');
         $checkbox.setAttribute('type', 'checkbox')
         return $checkbox;
     }
@@ -49,17 +48,20 @@ export default function Todo({ id, title, tag, created_at, updated_at, datas }) 
     const createTodoTitle = () => {
         const $title = createEl('span')('todo__title');
         $title.innerText = title;
+        $title.append(createTagList())
         return $title;
     }
 
     const createTagList = () => {
-        const $tags = createEl('div')('todo__tags');
+        const $tags = createEl('span')('todo__tags');
         tag.forEach(tagedId => {
-            const $tag = createEl('div')('todo__tag');
+            const $tag = createEl('span')('todo__tag');
             const tagedTodo = datas.find(data => data.id === tagedId);
-            $tag.innerText = `@${tagedTodo.title}`;
-            $tag.setAttribute('tag', tagedTodo.id)
-            $tags.append($tag)
+            if(tagedTodo){
+                $tag.innerText = `@${tagedTodo?.title}`;
+                $tag.setAttribute('tag', tagedTodo?.id)
+                $tags.append($tag)
+            }
         })
         return $tags;
     }
