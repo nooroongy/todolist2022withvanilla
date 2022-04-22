@@ -1,8 +1,9 @@
 import { EventBind, createEl } from "../common/common.js";
 
-export default function Todo({ title, tag, created_at, updated_at }) {
+export default function Todo({ id, title, tag, created_at, updated_at, datas }) {
     const createTodo = () => {
         const $resultElement = createEl('div')('todo__wrap');
+        $resultElement.setAttribute('id', id)
 
         setChildElement($resultElement, {
             $checkbox: ctrateTodoCheckbox(),
@@ -52,9 +53,15 @@ export default function Todo({ title, tag, created_at, updated_at }) {
     }
 
     const createTagList = () => {
-        const $title = createEl('span')('todo__title');
-        $title.innerText = title;
-        return $title;
+        const $tags = createEl('div')('todo__tags');
+        tag.forEach(tagedId => {
+            const $tag = createEl('div')('todo__tag');
+            const tagedTodo = datas.find(data => data.id === tagedId);
+            $tag.innerText = `@${tagedTodo.title}`;
+            $tag.setAttribute('tag', tagedTodo.id)
+            $tags.append($tag)
+        })
+        return $tags;
     }
 
     const createTodoDateWrap = () => {

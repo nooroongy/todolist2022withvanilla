@@ -37,3 +37,15 @@
 .todo__done{
     opacity: 0.5;
 }
+
+.todo__tag{
+    font-size: 0.7em;
+    color: #3388d2;
+    cursor: pointer;
+    font-family: 'Noto Sans KR';
+    font-weight: 400;
+}
+
+.todo__tag:hover{
+    color: #8ab7df;
+}
