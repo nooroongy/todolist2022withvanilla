@@ -26,3 +26,23 @@ i{
     height: 100vh;
     margin: 0 auto;
 }
+
+.paging__wrap{
+    display: flex;
+    justify-content: center;
+}
+
+.paging__page{
+    margin: 0 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+.paging__page:hover{
+    opacity: 0.4;
+}
+
+.paging__current{
+    color: #3388d2;
+    font-weight: 600;
+}

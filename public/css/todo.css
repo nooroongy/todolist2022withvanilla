@@ -14,7 +14,7 @@
 
 .todo__delete{
     font-size: 1.6em;
-    color: #e15f5f;
+    color: #a9a9a9;
 }
 
 .todo__date_wrap{
@@ -24,10 +24,12 @@
 .todo__date_updated{
     color: #258de5;
     font-weight: 500;
+    letter-spacing: -0.7px;
 }
 
 .todo__date_created{
     color: #000000b8;
+    letter-spacing: -0.7px;
 }
 
 .todo__done .todo__title{

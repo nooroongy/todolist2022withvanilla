@@ -21,28 +21,12 @@ export default function Todo({ id, title, tag, created_at, updated_at, datas }) 
         $target.append($todoDate)
         $target.append($deleteBtn)
 
-        EventBind($checkbox)('change')(checkBoxClickEvent($target))
-        EventBind($deleteBtn)('click')(deleteBtnClickEvent($target))
     }
 
     const ctrateTodoCheckbox = () => {
         const $checkbox = createEl('input')('todo__input');
         $checkbox.setAttribute('type', 'checkbox')
         return $checkbox;
-    }
-
-    const checkBoxClickEvent = $target => {
-        return event => {
-            const { target: { checked } } = event;
-            checked ? $target.classList.add('todo__done') : $target.classList.remove('todo__done')
-        }
-    }
-
-    const deleteBtnClickEvent = $target => {
-        return event => {
-            if (!confirm('정말 삭제하시겠습니까?')) return;
-            $target.remove()
-        };
     }
 
     const createTodoTitle = () => {
@@ -70,15 +54,17 @@ export default function Todo({ id, title, tag, created_at, updated_at, datas }) 
         const $dateWrap = createEl('div')('todo__date_wrap');
 
         const $updatedDate = createEl('div')('todo__date_updated');
-        $updatedDate.innerText = `updated at: ${updated_at}`;
+        $updatedDate.innerText = `updated at: ${makingDate(updated_at)}`;
 
         const $createdDate = createEl('div')('todo__date_created');
-        $createdDate.innerText = `created at: ${created_at}`;
+        $createdDate.innerText = `created at: ${makingDate(created_at)}`;
 
         $dateWrap.append($updatedDate)
         $dateWrap.append($createdDate)
         return $dateWrap
     }
+
+    const makingDate = date => `${date.substring(0,4)}-${date.substring(4,6)}-${date.substring(6,8)}`
 
     const createDeleteBtn = () => {
         const $deleteBtn = createEl('i')('todo__delete');
